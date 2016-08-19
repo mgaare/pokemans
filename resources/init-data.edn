@@ -1,0 +1,192 @@
+;;; pokeman species
+[
+ {:db/id #db/id[:db.part/user -100]
+  :species/name "Poochu"
+  :species/strength-rating :species.rating/low
+  :species/agility-rating :species.rating/high
+  :species/stamina-rating :species.rating/low
+  :species/magic-rating :species.rating/medium}
+
+ {:db/id #db/id[:db.part/user -101]
+  :species/name "Bleakachu"
+  :species/evolves-from #db/id[:db.part/user -100]
+  :species/strength-rating :species.rating/low
+  :species/agility-rating :species.rating/high
+  :species/stamina-rating :species.rating/medium
+  :species/magic-rating :species.rating/high}
+
+ {:db/id #db/id[:db.part/user -102]
+  :species/name "Piggy"
+  :species/strength-rating :species.rating/medium
+  :species/agility-rating :species.rating/medium
+  :species/stamina-rating :species.rating/low
+  :species/magic-rating :species.rating/low}
+
+ {:db/id #db/id[:db.part/user -103]
+  :species/name "Piggicon"
+  :species/evolves-from #db/id[:db.part/user -103]
+  :species/strength-rating :species.rating/medium
+  :species/agility-rating :species.rating/medium
+  :species/stamina-rating :species.rating/medium
+  :species/magic-rating :species.rating/low}
+
+ {:db/id #db/id[:db.part/user -104]
+  :species/name "Farmhander"
+  :species/strength-rating :species.rating/medium
+  :species/agility-rating :species.rating/low
+  :species/stamina-rating :species.rating/medium
+  :species/magic-rating :species.rating/low}
+
+ {:db/id #db/id[:db.part/user -105]
+  :species/name "Farmizard"
+  :species/evolves-from #db/id[:db.part/user -104]
+  :species/strength-rating :species.rating/high
+  :species/agility-rating :species.rating/low
+  :species/stamina-rating :species.rating/high
+  :species/magic-rating :species.rating/low}
+
+ {:db/id #db/id[:db.part/user -106]
+  :species/name "Dudeo"
+  :species/strength-rating :species.rating/medium
+  :species/agility-rating :species.rating/high
+  :species/stamina-rating :species.rating/low
+  :species/magic-rating :species.rating/low}
+
+ {:db/id #db/id[:db.part/user -107]
+  :species/name "Duderio"
+  :species/evolves-from #db/id[:db.part/user -106]
+  :species/strength-rating :species.rating/medium
+  :species/agility-rating :species.rating/omfgwtf
+  :species/stamina-rating :species.rating/medium
+  :species/magic-rating :species.rating/low}
+
+ {:db/id #db/id[:db.part/user -108]
+  :species/name "Cornpuff"
+  :species/strength-rating :species.rating/low
+  :species/agility-rating :species.rating/medium
+  :species/stamina-rating :species.rating/low
+  :species/magic-rating :species.rating/medium}
+
+ {:db/id #db/id[:db.part/user -109]
+  :species/name "Jellypuff"
+  :species/evolves-from #db/id[:db.part/user -108]
+  :species/strength-rating :species.rating/low
+  :species/agility-rating :species.rating/high
+  :species/stamina-rating :species.rating/low
+  :species/magic-rating :species.rating/medium}
+
+ {:db/id #db/id[:db.part/user -110]
+  :species/name "Wheatpuff"
+  :species/evolves-from #db/id[:db.part/user -109]
+  :species/strength-rating :species.rating/low
+  :species/agility-rating :species.rating/high
+  :species/stamina-rating :species.rating/low
+  :species/magic-rating :species.rating/high}
+
+ ]
+
+;;; gyms
+
+[
+ {:db/id #db/id[:db.part/user]
+  :gym/name "ANSI"
+  :gym/ethics :ethics/good}
+
+ {:db/id #db/id[:db.part/user]
+  :gym/name "ISO"
+  :gym/ethics :ethics/evil}
+
+ {:db/id #db/id[:db.part/user]
+  :gym/name "RFC"
+  :gym/ethics :ethics/ironically-detached-hipster}]
+
+
+;;; traineurs
+
+
+[
+ {:db/id #db/id[:db.part/user -100]
+  :traineur/name "Cody"
+  :traineur/gym [:gym/name "ISO"]
+  :traineur/ethics :ethics/good
+  :traineur/friends #{#db/id[:db.part/user -102]
+                      #db/id[:db.part/user -105]}}
+
+ {:db/id #db/id[:db.part/user -101]
+  :traineur/name "Jennifer"
+  :traineur/gym [:gym/name "ANSI"]
+  :traineur/ethics :ethics/evil
+  :traineur/friends #{#db/id[:db.part/user -102]
+                      #db/id[:db.part/user -111]}}
+
+ {:db/id #db/id[:db.part/user -102]
+  :traineur/name "Jerry"
+  :traineur/gym [:gym/name "ANSI"]
+  :traineur/ethics :ethics/evil
+  :traineur/friends #{#db/id[:db.part/user -107]
+                      #db/id[:db.part/user -111]}}
+
+ {:db/id #db/id[:db.part/user -103]
+  :traineur/name "John"
+  :traineur/gym [:gym/name "ANSI"]
+  :traineur/ethics :ethics/evil
+  :traineur/friends #{#db/id[:db.part/user -100]
+                      #db/id[:db.part/user -107]}}
+
+ {:db/id #db/id[:db.part/user -104]
+  :traineur/name "Linda"
+  :traineur/gym [:gym/name "ISO"]
+  :traineur/ethics :ethics/evil
+  :traineur/friends #{#db/id[:db.part/user -101]
+                      #db/id[:db.part/user -109]}}
+
+ {:db/id #db/id[:db.part/user -105]
+  :traineur/name "Michael"
+  :traineur/gym [:gym/name "ISO"]
+  :traineur/ethics :ethics/ironically-detached-hipster
+  :traineur/friends #{#db/id[:db.part/user -102]
+                      #db/id[:db.part/user -103]}}
+
+ {:db/id #db/id[:db.part/user -106]
+  :traineur/name "Omid"
+  :traineur/gym [:gym/name "ANSI"]
+  :traineur/ethics :ethics/good
+  :traineur/friends #{#db/id[:db.part/user -101]
+                      #db/id[:db.part/user -103]}}
+
+ {:db/id #db/id[:db.part/user -107]
+  :traineur/name "Oz"
+  :traineur/gym [:gym/name "RFC"]
+  :traineur/ethics :ethics/good
+  :traineur/friends #{#db/id[:db.part/user -104]
+                      #db/id[:db.part/user -105]}}
+
+ {:db/id #db/id[:db.part/user -108]
+  :traineur/name "Patrick"
+  :traineur/gym [:gym/name "RFC"]
+  :traineur/ethics :ethics/ironically-detached-hipster
+  :traineur/friends #{#db/id[:db.part/user -100]
+                      #db/id[:db.part/user -109]}}
+
+ {:db/id #db/id[:db.part/user -109]
+  :traineur/name "Ravi"
+  :traineur/gym [:gym/name "RFC"]
+  :traineur/ethics :ethics/evil
+  :traineur/friends #{#db/id[:db.part/user -104]
+                      #db/id[:db.part/user -106]}}
+
+ {:db/id #db/id[:db.part/user -110]
+  :traineur/name "Stanislav"
+  :traineur/gym [:gym/name "ISO"]
+  :traineur/ethics :ethics/ironically-detached-hipster
+  :traineur/friends #{#db/id[:db.part/user -102]
+                      #db/id[:db.part/user -107]}}
+
+ {:db/id #db/id[:db.part/user -111]
+  :traineur/name "Tamreen"
+  :traineur/gym [:gym/name "RFC"]
+  :traineur/ethics :ethics/good
+  :traineur/friends #{#db/id[:db.part/user -103]
+                      #db/id[:db.part/user -107]}}
+
+ ]

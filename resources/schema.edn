@@ -1,0 +1,211 @@
+[
+ ;; attributes about types of pokemans
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species/name
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/string
+  :db/unique :db.unique/identity
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species/evolves-from
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db/doc "The pokeman species that evolves into this pokeman type."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species/strength-rating
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db/doc "How strong a species of pokeman is, generally. (Enum)"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species/agility-rating
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db/doc "How agile a species of pokeman is, generally. (Enum)"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species/stamina-rating
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db/doc "How staminous a species of pokeman is, generally. (Enum)"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species/magic-rating
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db/doc "How magical a species of pokeman is, generally. (Enum)"
+  :db.install/_attribute :db.part/db}
+
+
+ ;; enums for ratings
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species.rating/low}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species.rating/medium}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species.rating/high}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :species.rating/omfgwtf}
+
+
+ ;;; attributes about individual pokemans
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :pokeman/species
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :pokeman/strength
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/long
+  :db/doc "Does your pokeman even lift, bro?"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :pokeman/agility
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/long
+  :db/doc "Is your pokeman a JohnCandychu or a SimoneBilesaur?"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :pokeman/stamina
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/long
+  :db/doc "Takes a lickin' and keeps on blinkin' its oversized eyes."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :pokeman/magic
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/long
+  :db/doc "Any sufficiently advanced technology is indistinguishable from magic... or maybe it's a pokeman!!!"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :pokeman/morale
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db/doc "How good this pokeman is feeling about itself. Affected by battle results and the quality of wine pairings at recent meals. (enum)"
+  :db.install/_attribute :db.part/db}
+
+
+ ;; enums for morale
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :morale/trump-supporter
+  :db/doc "Down by 8 points, torpedoing Senate candidates, 65 percent unfavorable rating, hiring a Breitbart person to run the campaign... morale could not be lower."}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :morale/low}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :morale/normal}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :morale/high}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :morale/real-bacon-at-breakfast
+  :db/doc "IT DOESN'T GET ANY BETTER THAN THIS!!!"}
+
+
+
+ ;;; attributes about gyms
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :gym/name
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/string
+  :db/unique :db.unique/identity
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :gym/ethics
+  :db/cardinality :db.cardinality/one
+  :db/valueType :db.type/ref
+  :db/doc "The ethics rating of a gym (enum)."
+  :db.install/_attribute :db.part/db}
+
+
+ ;;; attributes about traineurs
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :traineur/name
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/unique :db.unique/identity
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :traineur/gym
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "The gym a traineur belongs to."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :traineur/ethics
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/one
+  :db/doc "The ethics rating of a traineur (enum)."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :traineur/pokemans
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/many
+  :db/doc "The pokemans a traineur has enslaved."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :traineur/friends
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/many
+  :db/doc "Other traineurs a traineur is friends with."
+  :db.install/_attribute :db.part/db}
+
+
+ ;; enums for ethics
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :ethics/good}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :ethics/evil}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :ethics/ironically-detached-hipster}
+ ]
+
+;; DB functions
+[
+
+ ;; capture a pokeman only if not already captured
+
+ {:db/id #db/id[:db.part/user]
+  :db/ident :pokeman/capture
+  :db/fn #db/fn{:lang "clojure"
+                :params [db trainer pokeman]
+                :code (let [p (d/entity db pokeman)]
+                        (if-let [t (:traineur/_pokemans p)]
+                          (throw (ex-info (format "Pokeman already captured by %s"
+                                                  (:traineur/name (first t)))
+                                          {:pokeman pokeman
+                                           :trainer trainer}))
+                          [[:db/add trainer :traineur/pokemans pokeman]]))}}
+
+ ]

@@ -194,3 +194,71 @@
 ;;                        (conj bleakachu-ids jellypuff-id)))
 
 ;;; duplicates should list Cody and Bleakachu
+
+
+;;; also of note: you can use Datomic's query API on lists of vectors!
+
+(def fake-db
+  [[:Jenny :has-toy :MalibuCarrie]
+   [:Jenny :has-toy :DoctorCarrie]
+   [:Jenny :has-toy :PoliticalConsultantCarrie]
+   [:Jenny :has-toy :Bleakachu]
+   [:Jenny :has-toy :Blobosaur]
+   [:Karen :has-toy :Ariel]
+   [:Karen :has-toy :Belle]
+   [:Karen :has-toy :RockerBarbie]
+   [:MalibuCarrie :type :Carrie]
+   [:DoctorCarrie :type :Carrie]
+   [:PoliticalConsultantCarrie :type :Carrie]
+   [:RockerCarrie :type :Carrie]
+   [:Bleakachu :type :Pokeman]
+   [:Blobosaur :type :Pokeman]
+   [:Ariel :type :Princess]
+   [:Belle :type :Princess]])
+
+;; this doesn't work - returns too high count
+
+(d/q '[:find ?child ?type (count ?toy)
+       :where
+       [?child :has-toy ?toy1]
+       [?toy1 :type ?type]
+       [?child :has-toy ?toy2]
+       [?toy2 :type ?type]
+       [(!= ?toy1 ?toy2)]
+       [?child :has-toy ?toy]]
+     fake-db)
+
+;; this works!
+
+(d/q '[:find ?child ?type (count ?toy)
+       :where
+       [?child :has-toy ?toy1]
+       [?toy1 :type ?type]
+       [?child :has-toy ?duplicate]
+       [?duplicate :type ?type]
+       [(!= ?toy1 ?duplicate)]
+       [?child :has-toy ?toy]
+       [?toy :type ?type]]
+     fake-db)
+
+;; this works too!
+
+(d/q '[:find ?child ?type (count ?toy)
+       :where
+       [?child :has-toy ?toy]
+       [?toy :type ?type]
+       [?child :has-toy ?duplicate]
+       [?duplicate :type ?type]
+       [(!= ?toy ?duplicate)]]
+     fake-db)
+
+;; and this will give you the list of the toys
+
+(d/q '[:find ?child ?type (distinct ?toy)
+       :where
+       [?child :has-toy ?toy]
+       [?toy :type ?type]
+       [?child :has-toy ?duplicate]
+       [?duplicate :type ?type]
+       [(!= ?toy ?duplicate)]]
+     fake-db)

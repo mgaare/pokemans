@@ -1,0 +1,78 @@
+* Datomic
+
+** Attributes
+
+*** specii
+
+**** :species/name
+
+string, identity
+
+**** :species/evolves-from
+
+ref
+
+**** :species/strength-rating
+
+enum
+
+**** :species/agility-rating
+**** :species/stamina-rating
+**** :species/magic-rating
+**** Ratings enums
+***** :species.rating/low
+***** :species.rating/medium
+***** :species.rating/high
+***** :species.rating/omfgwtf
+*** pokemans
+**** :pokeman/species
+
+ref
+**** :pokeman/strength
+
+long
+**** :pokeman/agility
+
+long
+**** :pokeman/stamina
+
+long
+**** :pokeman/magic
+
+long
+**** :pokeman/morale
+
+enum
+**** Morale enums
+***** :morale/trump-supporter
+***** :morale/low
+***** :morale/normal
+***** :morale/high
+***** :morale/real-bacon-at-breakfast
+*** gyms
+**** :gym/name
+
+string, ident
+**** :gym/ethics
+
+enum
+*** traineurs
+**** :traineur/name
+
+string, ident
+**** :traineur/gym
+
+ref
+**** :traineur/ethics
+
+enum, same as gym ethics
+**** :traineur/pokemans
+
+ref, many
+**** :traineur/friends
+
+ref, many
+**** ethics enums
+***** :ethics/good
+***** :ethics/evil
+***** :ethics/ironically-detached-hipster
